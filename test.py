@@ -31,17 +31,17 @@ def test_insert(client):
     assert b'Test Task' in response.data
 
 
-# def test_delete(client):
-#     """Test deleting an item."""
-#     # First, insert a new item
-#     new_item = Myapp(c_name="Task to Delete")
-#     db.session.add(new_item)
-#     db.session.commit()
-#
-#     # Then, delete the item
-#     response = client.get(f'/delete/{new_item.c_id}', follow_redirects=True)
-#     assert response.status_code == 200
-#     assert b'Task to Delete' not in response.data
+def test_delete(client):
+    """Test deleting an item."""
+    # First, insert a new item
+    new_item = Myapp(c_name="Task to Delete")
+    db.session.add(new_item)
+    db.session.commit()
+
+    # Then, delete the item
+    response = client.get(f'/delete/{new_item.c_id}', follow_redirects=True)
+    assert response.status_code == 200
+    assert b'Task to Delete' not in response.data
 
 
 def test_base_route(client):
