@@ -27,6 +27,7 @@ def test_home_redirect(client):
 def test_insert(client):
     """Test inserting a new item and redirecting to /base."""
     response = client.post('/insert', data={'c_name': 'Test Task'}, follow_redirects=True)
+    print('saad')
     assert response.status_code == 200
     assert b'Test Task' in response.data
 
